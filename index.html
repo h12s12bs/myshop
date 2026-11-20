@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萌掌心 PawHeart 寵物生活館｜以家人之名，給毛孩最純粹的純然呵護</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF6F0',      // 溫潤米白底色
+              sand: '#F4ECE1',       // 奶茶沙色
+              sanddark: '#E7D8C4',   // 深奶茶色
+              forest: '#2D4A3E',     // 質感草本深綠
+              sage: '#567566',       // 柔和鼠尾草綠
+              lightgreen: '#E8EFEA', // 淺草本綠底色
+              warm: '#E07A5F',       // 暖杏仁橙 (CTA強調色)
+              warmhover: '#CB6348',  // 橙色 hover
+              earth: '#3D342E',      // 炭黑大地字體色
+              muted: '#7A6E65',      // 次要字體色
+            }
+          },
+          fontFamily: {
+            sans: ['"Outfit"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(61, 52, 46, 0.08)',
+            'card': '0 15px 35px -5px rgba(45, 74, 62, 0.08)',
+            'float': '0 20px 40px -10px rgba(224, 122, 95, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* 自訂平滑與微調樣式 */
+    body {
+      background-color: #FAF6F0;
+      color: #3D342E;
+      font-feature-settings: "palt";
+    }
+    .badge-pulse {
+      animation: badgePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    /* 滾動條美化 */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D4C3B3;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #567566;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-warm selection:text-white">
+
+  <!-- ==================== 1. 置頂導覽列 (Navbar) ==================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-brand-cream/90 backdrop-blur-md border-b border-brand-sanddark/50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-forest to-brand-sage flex items-center justify-center text-white shadow-md shadow-brand-forest/20 group-hover:scale-105 transition-transform duration-300">
+            <i class="fa-solid fa-paw text-xl text-amber-200"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl font-bold tracking-tight text-brand-forest group-hover:text-brand-warm transition-colors">萌掌心</span>
+              <span class="text-xs uppercase font-extrabold tracking-wider bg-brand-warm/15 text-brand-warm px-1.5 py-0.5 rounded-md">PawHeart</span>
+            </div>
+            <p class="text-[11px] text-brand-muted font-medium tracking-wider">毛孩精緻生活選物館</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-brand-earth">
+          <a href="#philosophy" class="hover:text-brand-warm transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-leaf text-brand-sage text-xs"></i> 品牌理念
+          </a>
+          <a href="#products" class="hover:text-brand-warm transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-bowl-food text-brand-sage text-xs"></i> 鮮食零食商城
+          </a>
+          <a href="#grooming" class="hover:text-brand-warm transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-bath text-brand-sage text-xs"></i> 預約草本 SPA
+          </a>
+          <a href="#reviews" class="hover:text-brand-warm transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-heart text-brand-sage text-xs"></i> 家長口碑
+          </a>
+          <a href="#store-info" class="hover:text-brand-warm transition-colors flex items-center gap-1">
+            <i class="fa-solid fa-location-dot text-brand-sage text-xs"></i> 門市資訊
+          </a>
+        </nav>
+
+        <!-- Right Action Icons: Cart & Member -->
+        <div class="flex items-center gap-3">
+          <!-- 購物車按鈕 -->
+          <button id="open-cart-btn" class="relative p-2.5 rounded-xl bg-white/80 hover:bg-white text-brand-forest shadow-sm border border-brand-sand hover:border-brand-warm transition-all duration-200 group" aria-label="打開購物車">
+            <i class="fa-solid fa-bag-shopping text-lg group-hover:scale-110 transition-transform"></i>
+            <!-- 紅/暖橘色件數 Badge -->
+            <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-warm text-white text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md scale-0 transition-transform duration-300">
+              0
+            </span>
+          </button>
+
+          <!-- 會員登入 / 狀態容器 (由 Firebase onAuthStateChanged 動態切換) -->
+          <div id="auth-btn-container">
+            <button id="open-auth-btn" onclick="openAuthModal('login')" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-forest text-white hover:bg-brand-sage transition-all duration-200 text-sm font-medium shadow-sm shadow-brand-forest/20">
+              <i class="fa-regular fa-circle-user text-base"></i>
+              <span class="hidden sm:inline">會員登入 / 註冊</span>
+            </button>
+          </div>
+
+          <!-- 手機版漢堡選單按鈕 -->
+          <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-white/80 text-brand-forest border border-brand-sand">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-cream border-b border-brand-sanddark/60 px-6 py-4 space-y-3">
+      <a href="#philosophy" class="block py-2 text-brand-earth font-semibold hover:text-brand-warm border-b border-brand-sand/50" onclick="toggleMobileMenu()">🌿 品牌理念</a>
+      <a href="#products" class="block py-2 text-brand-earth font-semibold hover:text-brand-warm border-b border-brand-sand/50" onclick="toggleMobileMenu()">🥣 鮮食零食商城</a>
+      <a href="#grooming" class="block py-2 text-brand-earth font-semibold hover:text-brand-warm border-b border-brand-sand/50" onclick="toggleMobileMenu()">🛁 預約草本 SPA</a>
+      <a href="#reviews" class="block py-2 text-brand-earth font-semibold hover:text-brand-warm border-b border-brand-sand/50" onclick="toggleMobileMenu()">❤️ 家長口碑好評</a>
+      <a href="#store-info" class="block py-2 text-brand-earth font-semibold hover:text-brand-warm" onclick="toggleMobileMenu()">📍 實體門市與客服</a>
+    </div>
+  </header>
+
+
+  <!-- ==================== 2. 英雄區塊 (Hero) ==================== -->
+  <section class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+    <!-- 背景光暈飾紋 -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-brand-sand/70 via-brand-lightgreen/50 to-amber-100/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- 左側文案 -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-lightgreen border border-brand-sage/20 text-brand-forest text-xs font-semibold">
+            <span class="flex h-2 w-2 rounded-full bg-brand-sage animate-ping"></span>
+            草本純淨・獸醫配方・無添加承諾
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-brand-earth tracking-tight leading-[1.2]">
+            以家人之名，給毛孩<br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-forest via-brand-sage to-brand-warm">最純粹的營養與呵護</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-brand-muted max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            專為挑嘴、腸胃敏感與高齡毛孩調配。我們嚴選 100% 人用級純肉鮮食，融合天然草本護理 SPA，讓毛孩的每一餐、每一次梳洗，都是安心無負擔的幸福儀式。
+          </p>
+
+          <!-- 雙 CTA 按鈕 -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-warm text-white font-bold text-base shadow-float hover:bg-brand-warmhover transition-all duration-200 flex items-center justify-center gap-3 group">
+              <span>立即選購鮮食</span>
+              <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <a href="#grooming" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-brand-forest border-2 border-brand-forest/20 font-bold text-base hover:bg-brand-lightgreen/60 hover:border-brand-forest transition-all duration-200 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-spa text-brand-sage"></i>
+              <span>預約草本 SPA 美容</span>
+            </a>
+          </div>
+
+          <!-- 信任標籤徽章 -->
+          <div class="pt-6 border-t border-brand-sanddark/40 grid grid-cols-3 gap-4 text-center sm:text-left">
+            <div>
+              <div class="text-2xl font-black text-brand-forest">12,000+</div>
+              <div class="text-xs text-brand-muted">毛孩家庭信任支持</div>
+            </div>
+            <div>
+              <div class="text-2xl font-black text-brand-forest">4.9 ★</div>
+              <div class="text-xs text-brand-muted">獸醫師推薦好評</div>
+            </div>
+            <div>
+              <div class="text-2xl font-black text-brand-forest">100%</div>
+              <div class="text-xs text-brand-muted">人用級安心食材</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右側視覺大圖卡片 -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- 主圖圓角相框 -->
+            <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-brand-sand">
+              <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=80" alt="幸福可愛的米克斯與柴犬毛孩" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+              
+              <!-- 漸層覆蓋層 -->
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-forest/70 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 text-white">
+                <span class="inline-block px-2.5 py-1 rounded-md bg-brand-warm text-[11px] font-bold tracking-wider mb-2">HOT PICK</span>
+                <h3 class="text-lg font-bold">草本舒敏泥浴 ＆ 純肉無穀低溫熟成</h3>
+                <p class="text-xs text-stone-200 mt-0.5">每週空運紐西蘭草飼原肉，守護心愛毛寶貝</p>
+              </div>
+            </div>
+
+            <!-- 浮動卡片 1：無穀鮮食 -->
+            <div class="absolute -top-5 -left-6 z-20 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-soft border border-brand-sand flex items-center gap-3 hidden sm:flex">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-brand-forest flex items-center justify-center">
+                <i class="fa-solid fa-bone text-lg"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-brand-earth">100% 原塊純肉</p>
+                <p class="text-[11px] text-brand-muted">零防腐劑・零肉粉充數</p>
+              </div>
+            </div>
+
+            <!-- 浮動卡片 2：五星美容 -->
+            <div class="absolute -bottom-6 -right-6 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-soft border border-brand-sand flex items-center gap-3.5 hidden sm:flex">
+              <div class="w-11 h-11 rounded-xl bg-amber-100 text-brand-warm flex items-center justify-center">
+                <i class="fa-solid fa-shield-heart text-xl"></i>
+              </div>
+              <div>
+                <div class="flex items-center text-amber-400 text-xs gap-0.5">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs font-bold text-brand-earth mt-0.5">低敏草本 SPA 預約中</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 3. 企業理念 (Philosophy) ==================== -->
+  <section id="philosophy" class="py-20 bg-white border-y border-brand-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 區塊標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-warm bg-brand-warm/10 px-3 py-1 rounded-full">Our Philosophy</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest">堅持 3 大天然承諾，如同對待摯愛手足</h2>
+        <p class="text-brand-muted text-base">市面上的化學添加物讓毛孩皮膚搔癢、淚痕嚴重嗎？萌掌心從源頭杜絕一切非必要添加，重拾原始健康活力。</p>
+      </div>
+
+      <!-- 3 大承諾卡片 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- 承諾 1 -->
+        <div class="bg-brand-cream/60 rounded-3xl p-8 border border-brand-sand hover:border-brand-sage/40 hover:shadow-card transition-all duration-300 relative group">
+          <div class="w-16 h-16 rounded-2xl bg-brand-lightgreen text-brand-forest flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-forest group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-drumstick-bite"></i>
+          </div>
+          <span class="text-xs font-bold text-brand-warm uppercase tracking-wider">Commitment 01</span>
+          <h3 class="text-xl font-bold text-brand-earth mt-1 mb-3">100% 人用級檢驗純肉</h3>
+          <p class="text-sm text-brand-muted leading-relaxed">
+            嚴禁次級肉碎與禽肉副產物。全系列採用產銷履歷生鮮大成雞胸肉、紐澳草飼原塊牛，通過 SGS 零重金屬、無抗生素檢測，飼主親嚐也安心。
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-sanddark/40 flex items-center gap-2 text-xs text-brand-sage font-medium">
+            <i class="fa-solid fa-circle-check text-brand-warm"></i> SGS 食品安心檢驗通過
+          </div>
+        </div>
+
+        <!-- 承諾 2 -->
+        <div class="bg-brand-cream/60 rounded-3xl p-8 border border-brand-sand hover:border-brand-sage/40 hover:shadow-card transition-all duration-300 relative group">
+          <div class="w-16 h-16 rounded-2xl bg-amber-100 text-brand-warm flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-brand-warm group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <span class="text-xs font-bold text-brand-warm uppercase tracking-wider">Commitment 02</span>
+          <h3 class="text-xl font-bold text-brand-earth mt-1 mb-3">獸醫與寵物營養師把關</h3>
+          <p class="text-sm text-brand-muted leading-relaxed">
+            嚴格參照 AAFCO / NRC 美國國家犬貓營養需求準則。針對亞洲都市寵物低運動量、易好發關節與腸胃問題精準調校鈣磷比，健康無負擔。
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-sanddark/40 flex items-center gap-2 text-xs text-brand-sage font-medium">
+            <i class="fa-solid fa-circle-check text-brand-warm"></i> 符合 AAFCO 犬貓均衡標準
+          </div>
+        </div>
+
+        <!-- 承諾 3 -->
+        <div class="bg-brand-cream/60 rounded-3xl p-8 border border-brand-sand hover:border-brand-sage/40 hover:shadow-card transition-all duration-300 relative group">
+          <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <span class="text-xs font-bold text-brand-warm uppercase tracking-wider">Commitment 03</span>
+          <h3 class="text-xl font-bold text-brand-earth mt-1 mb-3">低敏草本無香精照護</h3>
+          <p class="text-sm text-brand-muted leading-relaxed">
+            毛孩嗅覺靈敏度是人類的數萬倍。我們的全系列洗毛劑與 SPA 保養品堅持不含 SLS/SLES、人工合成香精，純粹提取金盞花與死海泥天然滋養。
+          </p>
+          <div class="mt-6 pt-4 border-t border-brand-sanddark/40 flex items-center gap-2 text-xs text-brand-sage font-medium">
+            <i class="fa-solid fa-circle-check text-brand-warm"></i> 純植物萃取・無人工香料
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 4. 寵物零食與鮮食商城 (Products) ==================== -->
+  <section id="products" class="py-20 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 標題與分類濾鏡 -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-warm bg-brand-warm/10 px-3 py-1 rounded-full">Artisan Pet Food</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest mt-2">鮮食零食精選商城</h2>
+          <p class="text-brand-muted text-sm mt-1">每一口都是現點鮮烘，給毛孩大口吃肉的痛快享受</p>
+        </div>
+
+        <!-- 分類標籤 (Category Filter) -->
+        <div class="flex flex-wrap gap-2" id="category-tabs">
+          <button onclick="filterCategory('all')" class="category-btn active px-4 py-2 rounded-xl text-xs font-bold bg-brand-forest text-white transition-all duration-200">
+            全部商品
+          </button>
+          <button onclick="filterCategory('meal')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-brand-earth border border-brand-sand hover:bg-brand-sand transition-all duration-200">
+            無穀鮮食包
+          </button>
+          <button onclick="filterCategory('freeze-dried')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-brand-earth border border-brand-sand hover:bg-brand-sand transition-all duration-200">
+            急速低溫凍乾
+          </button>
+          <button onclick="filterCategory('chew')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-white text-brand-earth border border-brand-sand hover:bg-brand-sand transition-all duration-200">
+            機能保健與零食
+          </button>
+        </div>
+      </div>
+
+      <!-- 商品網格 (Product Grid) -->
+      <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 商品卡片由 JS 動態生成 -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 5. 寵物美容線上預約專區 (Grooming Booking) ==================== -->
+  <section id="grooming" class="py-20 bg-white border-t border-brand-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-sage bg-brand-lightgreen px-3 py-1 rounded-full">Natural Herbal Grooming</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-forest">一對一極致草本 SPA 美容預約</h2>
+        <p class="text-brand-muted text-base">全預約制獨立包廂，無緊迫感環境，專業美容師以溫柔手技撫慰毛孩身心</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- 左側：服務項目卡片 -->
+        <div class="lg:col-span-5 space-y-5">
+          <h3 class="text-lg font-bold text-brand-earth flex items-center gap-2">
+            <i class="fa-solid fa-sparkles text-brand-warm"></i> 推薦草本保養方案
+          </h3>
+
+          <!-- 方案 1 -->
+          <div class="bg-brand-cream/80 p-5 rounded-2xl border border-brand-sand hover:border-brand-sage transition-all duration-200 group">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[11px] font-bold bg-brand-lightgreen text-brand-forest px-2 py-0.5 rounded">常規必備</span>
+                <h4 class="text-base font-bold text-brand-earth mt-1">經典深層舒壓洗沐</h4>
+                <p class="text-xs text-brand-muted mt-1">溫和草本胺基酸洗劑、清耳/剪趾甲/剃腳底毛/肛門腺清潔</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-brand-muted">定價</span>
+                <div class="text-lg font-black text-brand-forest">NT$ 800 <span class="text-xs font-normal text-brand-muted">起</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 方案 2 -->
+          <div class="bg-brand-cream/80 p-5 rounded-2xl border-2 border-brand-sage/40 shadow-sm relative group bg-gradient-to-r from-brand-cream to-brand-lightgreen/40">
+            <div class="absolute -top-3 right-4 bg-brand-warm text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+              店長人氣推薦
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[11px] font-bold bg-amber-100 text-brand-warm px-2 py-0.5 rounded">敏弱皮毛首選</span>
+                <h4 class="text-base font-bold text-brand-earth mt-1">天然苦楝除蚤舒敏調理</h4>
+                <p class="text-xs text-brand-muted mt-1">天然有機苦楝精華驅蚤防護、金盞花舒緩紅疹與皮屑搔癢</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-brand-muted">定價</span>
+                <div class="text-lg font-black text-brand-forest">NT$ 1,200 <span class="text-xs font-normal text-brand-muted">起</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 方案 3 -->
+          <div class="bg-brand-cream/80 p-5 rounded-2xl border border-brand-sand hover:border-brand-sage transition-all duration-200 group">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[11px] font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded">頂級奢華</span>
+                <h4 class="text-base font-bold text-brand-earth mt-1">頂級草本死海礦物泥浴 SPA</h4>
+                <p class="text-xs text-brand-muted mt-1">死海礦物深層毛孔排毒、微分子水療溫泉、深層毛囊修護蓬鬆</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-brand-muted">定價</span>
+                <div class="text-lg font-black text-brand-forest">NT$ 1,600 <span class="text-xs font-normal text-brand-muted">起</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 貼心提醒 -->
+          <div class="p-4 rounded-xl bg-amber-50/70 border border-amber-200/60 text-xs text-amber-900 leading-relaxed flex gap-3">
+            <i class="fa-solid fa-circle-exclamation text-amber-600 text-base mt-0.5"></i>
+            <div>
+              <p class="font-bold">預約注意事項：</p>
+              <p>為維護每位毛孩的隱私與安心感，每時段僅接待 2 隻毛孩。大型犬或貓咪請提前 3 日預約。預約資料將即時寫入雲端排程，美容師將於 24 小時內電話確認。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：獨立線上預約表單 (寫入 Firestore appointments) -->
+        <div class="lg:col-span-7">
+          <div class="bg-brand-cream p-6 sm:p-8 rounded-3xl border border-brand-sand shadow-card">
+            <h3 class="text-xl font-bold text-brand-forest mb-6 flex items-center gap-2">
+              <i class="fa-regular fa-calendar-check text-brand-warm"></i> 線上填寫預約資料
+            </h3>
+
+            <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+              
+              <!-- 飼主姓名與電話 -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">飼主姓名 <span class="text-red-500">*</span></label>
+                  <input type="text" id="book-owner-name" required placeholder="例：林小姐 / 陳先生" class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">聯絡電話 <span class="text-red-500">*</span></label>
+                  <input type="tel" id="book-phone" required placeholder="例：0912-345-678" class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                </div>
+              </div>
+
+              <!-- 毛孩姓名與品種 -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">毛孩名字 <span class="text-red-500">*</span></label>
+                  <input type="text" id="book-pet-name" required placeholder="例：波波" class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">毛孩品種/體重 <span class="text-red-500">*</span></label>
+                  <input type="text" id="book-pet-breed" required placeholder="例：柴犬 / 10kg" class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">體型類別 <span class="text-red-500">*</span></label>
+                  <select id="book-pet-size" required class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                    <option value="小型犬 (5kg以下)">小型犬 (5kg以下)</option>
+                    <option value="中型犬 (6-15kg)">中型犬 (6-15kg)</option>
+                    <option value="大型犬 (16kg以上)">大型犬 (16kg以上)</option>
+                    <option value="貓咪專屬柔和洗護">貓咪專屬柔和洗護</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 選擇服務與日期時間 -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">選擇服務方案 <span class="text-red-500">*</span></label>
+                  <select id="book-service" required class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                    <option value="經典深層舒壓洗沐 (NT$ 800 起)">經典深層舒壓洗沐 (NT$ 800 起)</option>
+                    <option value="天然苦楝除蚤舒敏調理 (NT$ 1,200 起)">天然苦楝除蚤舒敏調理 (NT$ 1,200 起)</option>
+                    <option value="頂級草本死海礦物泥浴 SPA (NT$ 1,600 起)">頂級草本死海礦物泥浴 SPA (NT$ 1,600 起)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-brand-earth mb-1.5">預約希望日期 <span class="text-red-500">*</span></label>
+                  <input type="date" id="book-date" required class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+                </div>
+              </div>
+
+              <!-- 預約時段 -->
+              <div>
+                <label class="block text-xs font-bold text-brand-earth mb-1.5">預約時段 <span class="text-red-500">*</span></label>
+                <div class="grid grid-cols-3 gap-3">
+                  <label class="border border-brand-sanddark/60 rounded-xl p-2.5 text-center cursor-pointer hover:bg-white transition-all text-xs font-semibold has-[:checked]:border-brand-forest has-[:checked]:bg-brand-lightgreen has-[:checked]:text-brand-forest">
+                    <input type="radio" name="book-time" value="早晨場 10:30" checked class="hidden">
+                    早晨場 10:30
+                  </label>
+                  <label class="border border-brand-sanddark/60 rounded-xl p-2.5 text-center cursor-pointer hover:bg-white transition-all text-xs font-semibold has-[:checked]:border-brand-forest has-[:checked]:bg-brand-lightgreen has-[:checked]:text-brand-forest">
+                    <input type="radio" name="book-time" value="午後場 14:00" class="hidden">
+                    午後場 14:00
+                  </label>
+                  <label class="border border-brand-sanddark/60 rounded-xl p-2.5 text-center cursor-pointer hover:bg-white transition-all text-xs font-semibold has-[:checked]:border-brand-forest has-[:checked]:bg-brand-lightgreen has-[:checked]:text-brand-forest">
+                    <input type="radio" name="book-time" value="夕陽場 17:30" class="hidden">
+                    夕陽場 17:30
+                  </label>
+                </div>
+              </div>
+
+              <!-- 特殊健康或行為備註 -->
+              <div>
+                <label class="block text-xs font-bold text-brand-earth mb-1.5">毛孩健康狀況或性格注意事項 (選填)</label>
+                <textarea id="book-notes" rows="2" placeholder="例：心臟病史、關節敏感勿按壓、吹風機聲音易緊張、對特定食物過敏..." class="w-full px-4 py-2.5 rounded-xl border border-brand-sanddark/60 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-sage/50"></textarea>
+              </div>
+
+              <!-- 送出按鈕 -->
+              <button id="book-submit-btn" type="submit" class="w-full py-3.5 rounded-xl bg-brand-forest text-white font-bold text-base hover:bg-brand-sage shadow-md shadow-brand-forest/20 transition-all duration-200 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>立即確認送出預約</span>
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== 6. 家長口碑專區 (Reviews) ==================== -->
+  <section id="reviews" class="py-20 bg-brand-cream/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-warm bg-brand-warm/10 px-3 py-1 rounded-full">Happy Pets, Happy Parents</span>
+        <h2 class="text-3xl font-extrabold text-brand-forest mt-2">超過萬名毛家長的真心推薦</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 評價 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-brand-sand shadow-sm space-y-3">
+          <div class="flex items-center text-amber-400 text-xs gap-1">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-earth leading-relaxed font-normal">
+            「家裡的法鬥皮膚一直反覆發癢，自從改吃萌掌心的草飼純肉鮮食包，再加上每個月兩次死海泥 SPA，現在毛光水滑，連抓癢次數都大幅減少！」
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-sand/60">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="法鬥媽媽 Claire" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-xs font-bold text-brand-earth">台北・Claire 媽媽</div>
+              <div class="text-[11px] text-brand-muted">寶貝：皮皮 (3歲法鬥)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 評價 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-brand-sand shadow-sm space-y-3">
+          <div class="flex items-center text-amber-400 text-xs gap-1">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-earth leading-relaxed font-normal">
+            「挑嘴橘貓平常飼料愛理不理，但一開萌掌心的低溫凍乾雞肉丁就暴衝喵喵叫！而且成分標示超透明，連營養師朋友看過都讚賞。」
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-sand/60">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="橘貓爸爸 王先生" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-xs font-bold text-brand-earth">新北・王銘宇 先生</div>
+              <div class="text-[11px] text-brand-muted">寶貝：阿肥 (4歲米克斯貓)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 評價 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-brand-sand shadow-sm space-y-3">
+          <div class="flex items-center text-amber-400 text-xs gap-1">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-sm text-brand-earth leading-relaxed font-normal">
+            「美容師超級溫柔有耐心！我的柴犬超級討厭剪指甲，以前去別家都嘶吼，在萌掌心美容師會先用肉乾安撫慢慢摸摸，回家心情超好完全沒鬱卒！」
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-brand-sand/60">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="柴犬家長 楊小姐" class="w-10 h-10 rounded-full object-cover">
+            <div>
+              <div class="text-xs font-bold text-brand-earth">台中・Iris 楊小姐</div>
+              <div class="text-[11px] text-brand-muted">寶貝：Kuma (2歲柴犬)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== 7. 購物車側邊抽屜 (Cart Drawer) ==================== -->
+  <div id="cart-drawer-backdrop" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-brand-cream z-50 shadow-2xl translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    
+    <!-- 購物車 Header -->
+    <div class="p-6 border-b border-brand-sanddark/50 flex items-center justify-between bg-white">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-brand-lightgreen text-brand-forest flex items-center justify-center">
+          <i class="fa-solid fa-bag-shopping text-base"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-brand-forest">我的毛孩購物車</h3>
+          <p class="text-xs text-brand-muted">滿 NT$ 999 享全台黑貓冷藏免運</p>
+        </div>
+      </div>
+      <button id="close-cart-btn" class="p-2 text-brand-muted hover:text-brand-earth rounded-lg hover:bg-brand-sand transition-colors">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <!-- 免運進度條 -->
+    <div class="px-6 py-3 bg-brand-lightgreen/50 border-b border-brand-sand text-xs font-medium text-brand-forest">
+      <div class="flex justify-between items-center mb-1">
+        <span id="shipping-progress-text">再消費 NT$ 999 即可享免運優惠！</span>
+        <span id="shipping-progress-percent" class="font-bold">0%</span>
+      </div>
+      <div class="w-full bg-white rounded-full h-2 overflow-hidden border border-brand-sand">
+        <div id="shipping-progress-bar" class="bg-gradient-to-r from-brand-sage to-brand-warm h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- 購物車商品列表 (滾動區域) -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- 空購物車預設畫面 (由 JS 依狀態切換) -->
+      <div id="empty-cart-view" class="h-full flex flex-col items-center justify-center text-center py-12">
+        <div class="w-20 h-20 rounded-full bg-brand-sand flex items-center justify-center text-brand-muted text-3xl mb-4">
+          <i class="fa-solid fa-basket-shopping"></i>
+        </div>
+        <h4 class="text-base font-bold text-brand-earth">購物車目前空空如也</h4>
+        <p class="text-xs text-brand-muted mt-1 max-w-xs">快幫家中寶貝挑選幾包天然鮮食或低溫凍乾吧！</p>
+        <button onclick="closeCart(); location.href='#products'" class="mt-5 px-5 py-2.5 rounded-xl bg-brand-forest text-white text-xs font-bold hover:bg-brand-sage transition-all">
+          逛逛鮮食商城
+        </button>
+      </div>
+
+      <!-- 購物車品項由 JS 動態渲染至此 -->
+      <div id="cart-items-list" class="space-y-4 hidden"></div>
+
+      <!-- 展開的線上結帳表單 (預設隱藏，送出寫入 Firestore orders) -->
+      <div id="checkout-form-section" class="hidden mt-6 pt-6 border-t-2 border-dashed border-brand-sanddark/70 bg-white p-5 rounded-2xl shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="font-bold text-brand-forest text-sm flex items-center gap-2">
+            <i class="fa-solid fa-truck-fast text-brand-warm"></i> 填寫收件與付款資料
+          </h4>
+          <button onclick="toggleCheckoutForm(false)" class="text-xs text-brand-muted hover:text-brand-earth">收起表單</button>
+        </div>
+
+        <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-bold text-brand-earth mb-1">收件人姓名 <span class="text-red-500">*</span></label>
+            <input type="text" id="order-name" required placeholder="請填寫真實姓名" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-brand-cream/30 focus:outline-none focus:ring-1 focus:ring-brand-sage">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-brand-earth mb-1">手機號碼 <span class="text-red-500">*</span></label>
+            <input type="tel" id="order-phone" required placeholder="例：0912345678" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-brand-cream/30 focus:outline-none focus:ring-1 focus:ring-brand-sage">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-brand-earth mb-1">黑貓冷藏配送地址 <span class="text-red-500">*</span></label>
+            <input type="text" id="order-address" required placeholder="例：台北市大安區信義路四段..." class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-brand-cream/30 focus:outline-none focus:ring-1 focus:ring-brand-sage">
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-brand-earth mb-1">付款方式 <span class="text-red-500">*</span></label>
+            <select id="order-payment" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-white focus:outline-none focus:ring-1 focus:ring-brand-sage">
+              <option value="信用卡線上刷卡 (一次付清)">信用卡線上刷卡 (Visa / Master / JCB)</option>
+              <option value="LINE Pay / 街口支付">LINE Pay / 街口行動支付</option>
+              <option value="黑貓宅急便貨到付款">黑貓宅急便貨到付款 (低溫冷藏)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-brand-earth mb-1">訂單或配送備註 (如：管理室代收、避開上午等)</label>
+            <input type="text" id="order-notes" placeholder="選填備註事項" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-brand-cream/30 focus:outline-none focus:ring-1 focus:ring-brand-sage">
+          </div>
+
+          <button id="order-submit-btn" type="submit" class="w-full mt-2 py-3 rounded-xl bg-brand-warm text-white font-bold text-sm hover:bg-brand-warmhover shadow-md transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-lock text-xs"></i>
+            <span>確認結帳並送出訂單</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- 購物車 Footer (小計、免運、結帳按鈕) -->
+    <div id="cart-footer" class="p-6 bg-white border-t border-brand-sanddark/50 space-y-3">
+      <div class="space-y-1.5 text-xs text-brand-muted">
+        <div class="flex justify-between">
+          <span>商品小計</span>
+          <span id="cart-subtotal" class="font-bold text-brand-earth">NT$ 0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>黑貓低溫冷藏運費</span>
+          <span id="cart-shipping" class="font-bold text-brand-earth">NT$ 120</span>
+        </div>
+        <div class="flex justify-between text-base font-black text-brand-forest pt-2 border-t border-brand-sand">
+          <span>總計金額</span>
+          <span id="cart-total" class="text-brand-warm">NT$ 0</span>
+        </div>
+      </div>
+
+      <div id="cart-action-buttons">
+        <button id="checkout-cta-btn" onclick="toggleCheckoutForm(true)" class="w-full py-3.5 rounded-xl bg-brand-forest text-white font-bold text-sm hover:bg-brand-sage shadow-md transition-all flex items-center justify-center gap-2">
+          <span>前往線上結帳</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+  </aside>
+
+
+  <!-- ==================== 8. CRM 會員註冊/登入彈窗 (Auth Modal - Firebase Auth) ==================== -->
+  <div id="auth-modal-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+    
+    <div id="auth-modal-card" class="bg-brand-cream w-full max-w-md rounded-3xl shadow-2xl border border-brand-sand overflow-hidden scale-95 transition-transform duration-300">
+      
+      <!-- Modal 頂部 -->
+      <div class="p-6 bg-white border-b border-brand-sand flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-brand-lightgreen text-brand-forest flex items-center justify-center">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-brand-forest">萌掌心 會員俱樂部</h3>
+            <p class="text-[11px] text-brand-muted">串接 Google 雲端會員系統，享專屬回饋</p>
+          </div>
+        </div>
+        <button onclick="closeAuthModal()" class="p-1.5 text-brand-muted hover:text-brand-earth rounded-lg hover:bg-brand-sand">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- 切換頁籤 (Tabs: 登入 / 註冊) -->
+      <div class="flex border-b border-brand-sand text-sm font-bold bg-brand-cream">
+        <button id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-3 text-center border-b-2 border-brand-forest text-brand-forest transition-colors">
+          會員登入
+        </button>
+        <button id="tab-register" onclick="switchAuthTab('register')" class="flex-1 py-3 text-center border-b-2 border-transparent text-brand-muted hover:text-brand-earth transition-colors">
+          註冊新家長
+        </button>
+      </div>
+
+      <div class="p-6">
+        
+        <!-- 友善錯誤提示區域 -->
+        <div id="auth-error-msg" class="hidden mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs flex items-center gap-2">
+          <i class="fa-solid fa-circle-exclamation text-base shrink-0"></i>
+          <span id="auth-error-text">錯誤訊息</span>
+        </div>
+
+        <!-- 醒目的 Google 帳號快速登入按鈕 -->
+        <button id="google-login-btn" type="button" onclick="handleGoogleLogin()" class="w-full py-3 px-4 rounded-xl border border-brand-sanddark/80 bg-white hover:bg-stone-50 text-brand-earth font-bold text-xs flex items-center justify-center gap-3 shadow-sm hover:shadow transition-all duration-200 group">
+          <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.03 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          <span class="group-hover:text-brand-forest">以 Google 帳號快速登入 / 註冊</span>
+        </button>
+
+        <!-- 分隔線 -->
+        <div class="relative flex py-3 items-center">
+          <div class="flex-grow border-t border-brand-sanddark/60"></div>
+          <span class="flex-shrink mx-3 text-[11px] text-brand-muted">或使用 Email 帳密</span>
+          <div class="flex-grow border-t border-brand-sanddark/60"></div>
+        </div>
+        
+        <!-- 登入表單 -->
+        <form id="form-login" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-brand-earth mb-1">電子信箱 (Email) <span class="text-red-500">*</span></label>
+            <div class="relative">
+              <i class="fa-regular fa-envelope absolute left-3.5 top-3 text-brand-muted text-xs"></i>
+              <input type="email" id="login-email" required placeholder="name@example.com" class="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-brand-sanddark bg-white focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="block text-xs font-bold text-brand-earth">密碼 <span class="text-red-500">*</span></label>
+              <a href="javascript:void(0)" onclick="showToast('請聯絡線上客服或管理員協助重設密碼')" class="text-[11px] text-brand-sage hover:underline">忘記密碼？</a>
+            </div>
+            <div class="relative">
+              <i class="fa-solid fa-lock absolute left-3.5 top-3 text-brand-muted text-xs"></i>
+              <input type="password" id="login-password" required placeholder="請輸入密碼" class="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-brand-sanddark bg-white focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+            </div>
+          </div>
+
+          <button id="login-submit-btn" type="submit" class="w-full py-3 rounded-xl bg-brand-forest text-white font-bold text-sm hover:bg-brand-sage transition-all shadow-md">
+            登入會員帳號
+          </button>
+        </form>
+
+        <!-- 註冊表單 -->
+        <form id="form-register" onsubmit="handleRegisterSubmit(event)" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-bold text-brand-earth mb-1">家長姓名/暱稱 <span class="text-red-500">*</span></label>
+            <input type="text" id="reg-name" required placeholder="例：林筱婷" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-sanddark bg-white focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brand-earth mb-1">電子信箱 <span class="text-red-500">*</span></label>
+            <input type="email" id="reg-email" required placeholder="name@example.com" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-sanddark bg-white focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brand-earth mb-1">設定登入密碼 <span class="text-red-500">*</span></label>
+            <input type="password" id="reg-password" required placeholder="至少 6 碼英數組合" minlength="6" class="w-full px-3.5 py-2.5 text-xs rounded-xl border border-brand-sanddark bg-white focus:outline-none focus:ring-2 focus:ring-brand-sage/50">
+          </div>
+
+          <!-- 毛孩資料 (CRM 特色) -->
+          <div class="p-3.5 bg-brand-lightgreen/60 rounded-xl border border-brand-sage/20 space-y-2.5">
+            <div class="text-[11px] font-bold text-brand-forest flex items-center gap-1.5">
+              <i class="fa-solid fa-paw text-brand-warm"></i> 填寫寶貝毛孩姓名，享專屬生日鮮食禮
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="reg-pet-name" required placeholder="毛孩名字 (例: 球球)" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-white focus:outline-none focus:ring-1 focus:ring-brand-sage">
+              <select id="reg-pet-type" class="w-full px-3 py-2 text-xs rounded-lg border border-brand-sanddark bg-white focus:outline-none focus:ring-1 focus:ring-brand-sage">
+                <option value="狗狗汪星人">汪星人 🐶</option>
+                <option value="貓咪喵星人">喵星人 🐱</option>
+                <option value="其他小動物">其他毛寶貝</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="register-submit-btn" type="submit" class="w-full py-3 rounded-xl bg-brand-warm text-white font-bold text-sm hover:bg-brand-warmhover transition-all shadow-md">
+            立即建立雲端帳號並登入
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ==================== 9. 成功送出提示彈窗 (Success Modal) ==================== -->
+  <div id="success-modal-backdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+    <div id="success-modal-card" class="bg-white w-full max-w-sm rounded-3xl shadow-2xl p-6 text-center scale-95 transition-transform duration-300">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 id="success-title" class="text-xl font-black text-brand-forest">訂購成功！</h3>
+      <p id="success-message" class="text-xs text-brand-muted mt-2 leading-relaxed">
+        我們將盡速為毛孩出貨！
+      </p>
+      <button onclick="closeSuccessModal()" class="mt-6 w-full py-2.5 rounded-xl bg-brand-forest text-white font-bold text-sm hover:bg-brand-sage transition-all">
+        了解，太棒了！
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ==================== 10. 頁尾 (Footer) ==================== -->
+  <footer id="store-info" class="bg-brand-forest text-white pt-16 pb-12 border-t-4 border-brand-sage">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-emerald-900/60">
+        
+        <!-- Column 1: 品牌簡介 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 rounded-xl bg-brand-warm flex items-center justify-center text-white">
+              <i class="fa-solid fa-paw"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight">萌掌心 PawHeart</span>
+          </div>
+          <p class="text-xs text-emerald-100/80 leading-relaxed font-normal">
+            致力於提升台灣毛孩的生活品質。我們嚴選草本保養與 100% 人用級原塊純肉，讓每個毛家庭都能享受健康無負擔的溫暖陪伴。
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="javascript:void(0)" onclick="showToast('正在前往 Facebook 官方粉絲專頁')" class="w-8 h-8 rounded-full bg-emerald-800/80 hover:bg-brand-warm flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-facebook-f text-xs"></i>
+            </a>
+            <a href="javascript:void(0)" onclick="showToast('正在前往 Instagram 官方帳號')" class="w-8 h-8 rounded-full bg-emerald-800/80 hover:bg-brand-warm flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-instagram text-xs"></i>
+            </a>
+            <a href="javascript:void(0)" onclick="showToast('LINE 官方好友 ID: @pawheart_tw')" class="w-8 h-8 rounded-full bg-emerald-800/80 hover:bg-brand-warm flex items-center justify-center transition-colors">
+              <i class="fa-brands fa-line text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: 實體門市與預約資訊 -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-amber-200 tracking-wider">門市實體專門店</h4>
+          <ul class="text-xs text-emerald-100/80 space-y-2.5">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-location-dot text-brand-warm mt-0.5"></i>
+              <span>台北市大安區青田街 88 號 1 樓 (捷運古亭/東門站步行8分鐘)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-clock text-brand-warm"></i>
+              <span>營業時間：週一至週日 10:00 - 20:30</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-square-parking text-brand-warm"></i>
+              <span>門市前附設毛孩臨停接送專用車位</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: 客服專線與安心保證 -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-amber-200 tracking-wider">顧客服務與諮詢</h4>
+          <ul class="text-xs text-emerald-100/80 space-y-2.5">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-brand-warm"></i>
+              <span>諮詢專線：(02) 2358-8899</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-regular fa-envelope text-brand-warm"></i>
+              <span>客服信箱：support@pawheart.com.tw</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-truck-snowflake text-brand-warm"></i>
+              <span>全台黑貓 -18°C 低溫鮮凍直送</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-brand-warm"></i>
+              <span>富邦 2,000 萬產品責任險安心投保</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: 電子報訂閱 -->
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-amber-200 tracking-wider">訂閱毛孩健康月報</h4>
+          <p class="text-xs text-emerald-100/80">獲得最新鮮食食譜、獸醫換季衛教資訊與會員限定私密優惠券。</p>
+          <form onsubmit="handleNewsletter(event)" class="space-y-2">
+            <input type="email" required placeholder="輸入您的電子郵件" class="w-full px-3 py-2 text-xs rounded-xl bg-emerald-950/70 border border-emerald-800 text-white placeholder-emerald-400 focus:outline-none focus:ring-1 focus:ring-brand-warm">
+            <button type="submit" class="w-full py-2 rounded-xl bg-brand-warm hover:bg-brand-warmhover text-white text-xs font-bold transition-colors">
+              免費訂閱
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-emerald-200/60 gap-4">
+        <p>© 2026 萌掌心 PawHeart 寵物生活館股份有限公司. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="javascript:void(0)" onclick="showToast('隱私權政策條款遵循個人資料保護法')" class="hover:underline">隱私權保護政策</a>
+          <a href="javascript:void(0)" onclick="showToast('全系列商品皆投保最高額度責任險')" class="hover:underline">消費者權益宣告</a>
+          <a href="javascript:void(0)" onclick="showToast('特寵業繁字第 U1090123 號')" class="hover:underline">特寵業字號</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==================== 11. Toast 浮動輕量提示組件 ==================== -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 max-w-sm bg-brand-earth text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div id="toast-icon" class="text-brand-warm text-lg"><i class="fa-solid fa-circle-check"></i></div>
+    <span id="toast-message" class="text-xs font-medium">通知訊息內容</span>
+  </div>
+
+
+  <!-- ==================== 12. 官方 Firebase 模組化 SDK (CDN) & 互動核心 ==================== -->
+  <script type="module">
+    // 引入 Firebase 官方 CDN 模組化 SDK (v10.8.0)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, 
+      signInWithPopup, 
+      GoogleAuthProvider, 
+      signInWithEmailAndPassword, 
+      createUserWithEmailAndPassword, 
+      signOut, 
+      onAuthStateChanged,
+      updateProfile
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { 
+      getFirestore, 
+      collection, 
+      addDoc, 
+      doc, 
+      setDoc, 
+      serverTimestamp 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // 您的 Firebase 雲端設定
+    const firebaseConfig = {
+      apiKey: "AIzaSyDwXJVsR-C_vBVgGgZscKev3cRI-_f_eRk",
+      authDomain: "myshop-5d196.firebaseapp.com",
+      projectId: "myshop-5d196",
+      storageBucket: "myshop-5d196.firebasestorage.app",
+      messagingSenderId: "783688954077",
+      appId: "1:783688954077:web:1762357e7c6532afbb6b34"
+    };
+
+    // 初始化 Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const googleProvider = new GoogleAuthProvider();
+
+    // 當前會員物件 (由 onAuthStateChanged 自動維護)
+    let currentAuthUser = null;
+
+    /* ----------------------------------------------------
+       商品資料庫 (Products Data)
+       ---------------------------------------------------- */
+    const products = [
+      {
+        id: 'p1',
+        name: '頂級無穀純肉鮮食包',
+        category: 'meal',
+        spec: '田園嫩雞＋紐西蘭草飼牛 150g*6入',
+        price: 699,
+        tag: '熱銷第一',
+        tagColor: 'bg-brand-warm',
+        image: 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=600&q=80',
+        desc: '產銷履歷生鮮原肉燉煮，保留濃郁肉汁，無防腐劑無肉粉。'
+      },
+      {
+        id: 'p2',
+        name: '零下40度超低溫凍乾雞肉丁',
+        category: 'freeze-dried',
+        spec: '大成安心雞急速鎖鮮 100g 罐裝',
+        price: 250,
+        tag: '毛孩最愛',
+        tagColor: 'bg-brand-forest',
+        image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=600&q=80',
+        desc: '太空凍乾技術完整保留熱敏性維生素與 80% 原肉高蛋白。'
+      },
+      {
+        id: 'p3',
+        name: '草本螺旋藻機能潔牙棒',
+        category: 'chew',
+        spec: '清新口氣耐嚼配方 15入/包',
+        price: 180,
+        tag: '口氣清新',
+        tagColor: 'bg-emerald-600',
+        image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80',
+        desc: '天然草本螺旋藻與褐藻糖膠，深層物理摩擦清除牙垢與齒斑。'
+      },
+      {
+        id: 'p4',
+        name: '深海野生三文魚機能魚油',
+        category: 'chew',
+        spec: '高純度Omega-3/EPA/DHA 250ml',
+        price: 520,
+        tag: '皮毛亮麗',
+        tagColor: 'bg-amber-600',
+        image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80',
+        desc: '挪威純淨野生鮭魚低溫萃取，滋養毛囊，幫助改善皮膚敏癢乾燥。'
+      },
+      {
+        id: 'p5',
+        name: '法式舒肥低敏櫻桃鴨胸丁',
+        category: 'freeze-dried',
+        spec: '宜蘭三星櫻桃鴨原塊烘烤 80g',
+        price: 280,
+        tag: '低敏高鐵',
+        tagColor: 'bg-rose-600',
+        image: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=600&q=80',
+        desc: '單一禽鳥低敏肉源，富含不飽和脂肪酸與維生素B群，挑食汪喵必備。'
+      },
+      {
+        id: 'p6',
+        name: '益生菌牛磺酸金南瓜泥肉煲',
+        category: 'meal',
+        spec: '腸道排毛化毛雙效 120g*5包',
+        price: 390,
+        tag: '腸道順暢',
+        tagColor: 'bg-orange-500',
+        image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80',
+        desc: '嚴選花蓮東昇南瓜搭配十種活性芽孢益生菌，排便順暢淚痕拜拜。'
+      }
+    ];
+
+    /* ----------------------------------------------------
+       購物車狀態管理 (Cart State)
+       ---------------------------------------------------- */
+    let cart = [];
+    const SHIPPING_THRESHOLD = 999;
+    const SHIPPING_FEE = 120;
+
+    function renderProducts(filter = 'all') {
+      const container = document.getElementById('product-list');
+      const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+      
+      container.innerHTML = filtered.map(item => `
+        <div class="bg-white rounded-3xl overflow-hidden border border-brand-sand hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col group">
+          <div class="relative aspect-[4/3] overflow-hidden bg-brand-sand">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 ${item.tagColor} text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+              ${item.tag}
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <p class="text-[11px] font-bold text-brand-sage uppercase tracking-wider">${item.spec}</p>
+              <h3 class="text-lg font-bold text-brand-earth mt-1">${item.name}</h3>
+              <p class="text-xs text-brand-muted mt-1.5 leading-relaxed line-clamp-2">${item.desc}</p>
+            </div>
+
+            <div class="pt-3 border-t border-brand-sand flex items-center justify-between">
+              <div>
+                <span class="text-[11px] text-brand-muted">售價</span>
+                <div class="text-xl font-black text-brand-forest">NT$ ${item.price}</div>
+              </div>
+              <button onclick="addToCart('${item.id}')" class="px-4 py-2.5 rounded-xl bg-brand-sand hover:bg-brand-warm hover:text-white text-brand-forest font-bold text-xs flex items-center gap-1.5 transition-all duration-200">
+                <i class="fa-solid fa-cart-plus"></i>
+                <span>加入購物車</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-brand-forest', 'text-white');
+        btn.classList.add('bg-white', 'text-brand-earth');
+      });
+      event.target.classList.add('active', 'bg-brand-forest', 'text-white');
+      event.target.classList.remove('bg-white', 'text-brand-earth');
+      renderProducts(cat);
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const existingIndex = cart.findIndex(item => item.id === productId);
+      if (existingIndex > -1) {
+        cart[existingIndex].qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+
+      updateCartUI();
+      showToast(`已將「${product.name}」加入購物車！`);
+
+      const badge = document.getElementById('cart-badge');
+      badge.classList.remove('scale-100');
+      badge.classList.add('scale-125');
+      setTimeout(() => {
+        badge.classList.remove('scale-125');
+        badge.classList.add('scale-100');
+      }, 200);
+    }
+
+    function changeQty(productId, delta) {
+      const index = cart.findIndex(item => item.id === productId);
+      if (index === -1) return;
+
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+        showToast('商品已從購物車移除');
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      updateCartUI();
+      showToast('商品已自購物車清除');
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cart-badge');
+      const emptyView = document.getElementById('empty-cart-view');
+      const itemsList = document.getElementById('cart-items-list');
+
+      const totalItemsCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      if (totalItemsCount > 0) {
+        badge.textContent = totalItemsCount > 99 ? '99+' : totalItemsCount;
+        badge.classList.remove('scale-0');
+        badge.classList.add('scale-100');
+      } else {
+        badge.classList.remove('scale-100');
+        badge.classList.add('scale-0');
+      }
+
+      const shippingProgressText = document.getElementById('shipping-progress-text');
+      const shippingProgressBar = document.getElementById('shipping-progress-bar');
+      const shippingProgressPercent = document.getElementById('shipping-progress-percent');
+      
+      const remainForFree = SHIPPING_THRESHOLD - subtotal;
+      const progressPercent = Math.min(100, Math.round((subtotal / SHIPPING_THRESHOLD) * 100));
+
+      shippingProgressBar.style.width = `${progressPercent}%`;
+      shippingProgressPercent.textContent = `${progressPercent}%`;
+
+      if (subtotal >= SHIPPING_THRESHOLD) {
+        shippingProgressText.innerHTML = `<span class="text-brand-sage font-bold"><i class="fa-solid fa-circle-check"></i> 已達免運門檻！享受黑貓免運優惠</span>`;
+      } else if (subtotal > 0) {
+        shippingProgressText.innerHTML = `再消費 <span class="font-bold text-brand-warm">NT$ ${remainForFree}</span> 享免運冷藏配送！`;
+      } else {
+        shippingProgressText.textContent = `滿 NT$ ${SHIPPING_THRESHOLD} 享全台冷藏免運`;
+      }
+
+      if (cart.length === 0) {
+        emptyView.classList.remove('hidden');
+        itemsList.classList.add('hidden');
+        toggleCheckoutForm(false);
+      } else {
+        emptyView.classList.add('hidden');
+        itemsList.classList.remove('hidden');
+
+        itemsList.innerHTML = cart.map(item => `
+          <div class="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-brand-sand shadow-sm">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover bg-brand-sand shrink-0">
+            <div class="flex-1 min-w-0">
+              <h5 class="text-xs font-bold text-brand-earth truncate">${item.name}</h5>
+              <p class="text-[11px] text-brand-muted mt-0.5">NT$ ${item.price}</p>
+              
+              <div class="flex items-center gap-2 mt-2">
+                <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded-lg bg-brand-cream border border-brand-sand flex items-center justify-center text-xs text-brand-earth hover:bg-brand-sand">
+                  <i class="fa-solid fa-minus text-[10px]"></i>
+                </button>
+                <span class="text-xs font-bold w-6 text-center text-brand-forest">${item.qty}</span>
+                <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded-lg bg-brand-cream border border-brand-sand flex items-center justify-center text-xs text-brand-earth hover:bg-brand-sand">
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                </button>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs font-bold text-brand-forest mb-2">NT$ ${item.price * item.qty}</div>
+              <button onclick="removeFromCart('${item.id}')" class="text-brand-muted hover:text-red-500 text-xs transition-colors" title="刪除品項">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      const actualShipping = (subtotal >= SHIPPING_THRESHOLD || subtotal === 0) ? 0 : SHIPPING_FEE;
+      const total = subtotal + actualShipping;
+
+      document.getElementById('cart-subtotal').textContent = `NT$ ${subtotal.toLocaleString()}`;
+      document.getElementById('cart-shipping').textContent = actualShipping === 0 ? '免運費' : `NT$ ${actualShipping}`;
+      document.getElementById('cart-total').textContent = `NT$ ${total.toLocaleString()}`;
+    }
+
+    function toggleCheckoutForm(show) {
+      const section = document.getElementById('checkout-form-section');
+      const ctaBtn = document.getElementById('checkout-cta-btn');
+      
+      if (show) {
+        if (cart.length === 0) {
+          showToast('購物車為空，無法進行結帳');
+          return;
+        }
+        section.classList.remove('hidden');
+        ctaBtn.classList.add('hidden');
+        section.scrollIntoView({ behavior: 'smooth' });
+
+        // 若已登入且姓名欄位為空，自動預先填入會員姓名
+        const nameInput = document.getElementById('order-name');
+        if (currentAuthUser && !nameInput.value) {
+          nameInput.value = currentAuthUser.displayName || '';
+        }
+      } else {
+        section.classList.add('hidden');
+        ctaBtn.classList.remove('hidden');
+      }
+    }
+
+    /* ----------------------------------------------------
+       功能 2：購物車下單寫入 Firestore (orders 集合)
+       ---------------------------------------------------- */
+    async function handleOrderSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('order-submit-btn');
+      const originalBtnHtml = submitBtn.innerHTML;
+
+      const name = document.getElementById('order-name').value.trim();
+      const phone = document.getElementById('order-phone').value.trim();
+      const addr = document.getElementById('order-address').value.trim();
+      const payment = document.getElementById('order-payment').value;
+      const notes = document.getElementById('order-notes').value.trim();
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const actualShipping = (subtotal >= SHIPPING_THRESHOLD || subtotal === 0) ? 0 : SHIPPING_FEE;
+      const totalAmount = subtotal + actualShipping;
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>訂單傳輸中...</span>';
+
+        // 建立訂單物件
+        const orderData = {
+          userId: currentAuthUser ? currentAuthUser.uid : "guest",
+          userEmail: currentAuthUser ? currentAuthUser.email : "",
+          userName: currentAuthUser ? (currentAuthUser.displayName || name) : name,
+          customer: {
+            name: name,
+            phone: phone,
+            address: addr,
+            paymentMethod: payment,
+            notes: notes || "無特殊備註"
+          },
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            spec: item.spec,
+            price: item.price,
+            qty: item.qty,
+            subtotal: item.price * item.qty
+          })),
+          subtotal: subtotal,
+          shippingFee: actualShipping,
+          totalAmount: totalAmount,
+          status: "pending", // 待處理出貨
+          createdAt: serverTimestamp()
+        };
+
+        // 寫入 Firestore 的 orders 集合
+        const docRef = await addDoc(collection(db, "orders"), orderData);
+        console.log("訂單已成功寫入 Firestore! ID:", docRef.id);
+
+        closeCart();
+        cart = [];
+        updateCartUI();
+        document.getElementById('order-form').reset();
+        toggleCheckoutForm(false);
+
+        // 彈出感謝視窗
+        showSuccessModal(
+          '訂購成功！我們將盡速為毛孩出貨 🐾',
+          `親愛的 ${name} 您好，訂單編號 #${docRef.id.slice(0, 8).toUpperCase()} 已成功成立！黑貓宅急便將於明日安排低溫冷藏配送至「${addr}」，出貨時會以簡訊通知手機 ${phone}！`
+        );
+
+      } catch (error) {
+        console.error("訂單寫入 Firestore 失敗:", error);
+        showToast("下單失敗，請檢查網路連線或稍後再試！", true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
+    }
+
+    /* ----------------------------------------------------
+       購物車側邊抽屜開關
+       ---------------------------------------------------- */
+    const openCartBtn = document.getElementById('open-cart-btn');
+    const closeCartBtn = document.getElementById('close-cart-btn');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartBackdrop = document.getElementById('cart-drawer-backdrop');
+
+    function openCart() {
+      cartBackdrop.classList.remove('pointer-events-none', 'opacity-0');
+      cartBackdrop.classList.add('opacity-100');
+      cartDrawer.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      cartBackdrop.classList.add('opacity-0');
+      cartBackdrop.classList.add('pointer-events-none');
+      cartDrawer.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    }
+
+    openCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    cartBackdrop.addEventListener('click', closeCart);
+
+    /* ----------------------------------------------------
+       功能 3：美容預約即時寫入 Firestore (appointments 集合)
+       ---------------------------------------------------- */
+    async function handleBookingSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('book-submit-btn');
+      const originalBtnHtml = submitBtn.innerHTML;
+
+      const ownerName = document.getElementById('book-owner-name').value.trim();
+      const phone = document.getElementById('book-phone').value.trim();
+      const petName = document.getElementById('book-pet-name').value.trim();
+      const petBreed = document.getElementById('book-pet-breed').value.trim();
+      const petSize = document.getElementById('book-pet-size').value;
+      const service = document.getElementById('book-service').value;
+      const date = document.getElementById('book-date').value;
+      const timeRadios = document.getElementsByName('book-time');
+      let selectedTime = '早晨場 10:30';
+      for (const r of timeRadios) {
+        if (r.checked) selectedTime = r.value;
+      }
+      const notes = document.getElementById('book-notes').value.trim();
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-sm"></i> <span>預約登記中...</span>';
+
+        const appointmentData = {
+          userId: currentAuthUser ? currentAuthUser.uid : "guest",
+          userEmail: currentAuthUser ? currentAuthUser.email : "",
+          ownerName: ownerName,
+          phone: phone,
+          petName: petName,
+          petBreed: petBreed,
+          petSize: petSize,
+          service: service,
+          date: date,
+          timeSlot: selectedTime,
+          notes: notes || "無特殊備註",
+          status: "confirmed", // 已登記
+          createdAt: serverTimestamp()
+        };
+
+        const docRef = await addDoc(collection(db, "appointments"), appointmentData);
+        console.log("美容預約已成功寫入 Firestore! ID:", docRef.id);
+
+        showSuccessModal(
+          '美容預約已成功送出！🌿',
+          `親愛的 ${ownerName} 您好，已為毛孩【${petName}】預約「${service}」。預約時間為：${date} (${selectedTime})。門市美容師將於 24 小時內撥打 ${phone} 與您核對毛孩健康狀況與詳細抵達時間！`
+        );
+
+        document.getElementById('booking-form').reset();
+
+      } catch (error) {
+        console.error("預約寫入 Firestore 失敗:", error);
+        showToast("預約送出失敗，請檢查網路連線或稍後再試！", true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
+    }
+
+    /* ----------------------------------------------------
+       功能 1：CRM 會員系統 (Firebase Auth + Firestore)
+       ---------------------------------------------------- */
+    function openAuthModal(defaultTab = 'login') {
+      clearAuthError();
+      const backdrop = document.getElementById('auth-modal-backdrop');
+      const card = document.getElementById('auth-modal-card');
+      switchAuthTab(defaultTab);
+      backdrop.classList.remove('pointer-events-none', 'opacity-0');
+      backdrop.classList.add('opacity-100');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+    }
+
+    function closeAuthModal() {
+      const backdrop = document.getElementById('auth-modal-backdrop');
+      const card = document.getElementById('auth-modal-card');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+      clearAuthError();
+    }
+
+    document.getElementById('auth-modal-backdrop').addEventListener('click', function(e) {
+      if (e.target === this) closeAuthModal();
+    });
+
+    function switchAuthTab(tab) {
+      clearAuthError();
+      const tabLogin = document.getElementById('tab-login');
+      const tabRegister = document.getElementById('tab-register');
+      const formLogin = document.getElementById('form-login');
+      const formRegister = document.getElementById('form-register');
+
+      if (tab === 'login') {
+        tabLogin.className = 'flex-1 py-3 text-center border-b-2 border-brand-forest text-brand-forest transition-colors';
+        tabRegister.className = 'flex-1 py-3 text-center border-b-2 border-transparent text-brand-muted hover:text-brand-earth transition-colors';
+        formLogin.classList.remove('hidden');
+        formRegister.classList.add('hidden');
+      } else {
+        tabRegister.className = 'flex-1 py-3 text-center border-b-2 border-brand-warm text-brand-warm transition-colors';
+        tabLogin.className = 'flex-1 py-3 text-center border-b-2 border-transparent text-brand-muted hover:text-brand-earth transition-colors';
+        formRegister.classList.remove('hidden');
+        formLogin.classList.add('hidden');
+      }
+    }
+
+    function showAuthError(msg) {
+      const errBox = document.getElementById('auth-error-msg');
+      const errText = document.getElementById('auth-error-text');
+      errText.textContent = msg;
+      errBox.classList.remove('hidden');
+    }
+
+    function clearAuthError() {
+      const errBox = document.getElementById('auth-error-msg');
+      errBox.classList.add('hidden');
+    }
+
+    // 格式化 Firebase 常見錯誤訊息
+    function formatFirebaseError(code) {
+      switch (code) {
+        case 'auth/invalid-credential':
+        case 'auth/wrong-password':
+        case 'auth/user-not-found':
+          return '帳號或密碼不正確，請重新檢查。';
+        case 'auth/email-already-in-use':
+          return '此電子信箱已被註冊，請直接切換至「會員登入」。';
+        case 'auth/invalid-email':
+          return '電子信箱格式不正確，請重新輸入。';
+        case 'auth/weak-password':
+          return '密碼強度不足，請設定至少 6 位字元。';
+        case 'auth/popup-closed-by-user':
+          return 'Google 登入視窗已被關閉，請重新點擊登入。';
+        case 'auth/popup-blocked':
+          return '瀏覽器攔截了登入彈窗，請允許開啟彈出式視窗後再試。';
+        default:
+          return `登入遭遇問題（${code || '未知錯誤'}），請稍後再試。`;
+      }
+    }
+
+    // 1-A. Google 快速登入
+    async function handleGoogleLogin() {
+      clearAuthError();
+      const btn = document.getElementById('google-login-btn');
+      const originalText = btn.innerHTML;
+
+      try {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-sm"></i> <span>Google 登入中...</span>';
+
+        const result = await signInWithPopup(auth, googleProvider);
+        const user = result.user;
+
+        // CRM 會員自動建檔至 Firestore users 集合
+        await setDoc(doc(db, "users", user.uid), {
+          uid: user.uid,
+          displayName: user.displayName || "毛孩家長",
+          email: user.email,
+          photoURL: user.photoURL || "",
+          lastLoginAt: serverTimestamp()
+        }, { merge: true });
+
+        closeAuthModal();
+        showToast(`歡迎回來，${user.displayName || "毛孩家長"}！`);
+
+      } catch (error) {
+        console.error("Google 登入失敗:", error);
+        showAuthError(formatFirebaseError(error.code));
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+      }
+    }
+
+    // 1-B. Email 帳密登入
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      clearAuthError();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const submitBtn = document.getElementById('login-submit-btn');
+      const originalText = submitBtn.innerHTML;
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> 登入中...';
+
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // 更新最後登入時間
+        await setDoc(doc(db, "users", user.uid), {
+          uid: user.uid,
+          email: user.email,
+          lastLoginAt: serverTimestamp()
+        }, { merge: true });
+
+        closeAuthModal();
+        showToast(`歡迎回來，${user.displayName || email.split('@')[0]} 家長！`);
+
+      } catch (error) {
+        console.error("Email 登入失敗:", error);
+        showAuthError(formatFirebaseError(error.code));
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    }
+
+    // 1-C. Email 帳號密碼註冊 (含毛孩資訊 CRM 收集)
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+      clearAuthError();
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value;
+      const petName = document.getElementById('reg-pet-name').value.trim();
+      const petType = document.getElementById('reg-pet-type').value;
+
+      const submitBtn = document.getElementById('register-submit-btn');
+      const originalText = submitBtn.innerHTML;
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-xs"></i> 註冊帳號中...';
+
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        // 更新 Firebase Auth Profile
+        await updateProfile(user, {
+          displayName: name
+        });
+
+        // 寫入 Firestore users 集合
+        await setDoc(doc(db, "users", user.uid), {
+          uid: user.uid,
+          displayName: name,
+          email: email,
+          petName: petName,
+          petType: petType,
+          photoURL: "",
+          createdAt: serverTimestamp(),
+          lastLoginAt: serverTimestamp()
+        }, { merge: true });
+
+        closeAuthModal();
+        showSuccessModal(
+          '註冊成功！歡迎加入萌掌心 🐾',
+          `親愛的 ${name}，已為您與毛孩【${petName}】開啟專屬會員檔案！首購 9 折專屬折扣券【PAWLOVE90】已自動匯入您的會員帳戶中。`
+        );
+
+      } catch (error) {
+        console.error("註冊失敗:", error);
+        showAuthError(formatFirebaseError(error.code));
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    }
+
+    // 1-D. 登出
+    async function handleLogout() {
+      try {
+        await signOut(auth);
+        showToast('您已成功安全登出');
+      } catch (error) {
+        console.error("登出失敗:", error);
+        showToast('登出發生問題，請重試', true);
+      }
+    }
+
+    // 1-E. 登入狀態監聽器 (onAuthStateChanged)
+    onAuthStateChanged(auth, (user) => {
+      currentAuthUser = user;
+      const container = document.getElementById('auth-btn-container');
+
+      if (user) {
+        // 已登入：顯示使用者頭像 + 姓名 + 登出按鈕
+        const userName = user.displayName || user.email.split('@')[0];
+        const userPhoto = user.photoURL 
+          ? `<img src="${user.photoURL}" alt="${userName}" referrerpolicy="no-referrer" class="w-7 h-7 rounded-full object-cover border border-white shadow-sm shrink-0">` 
+          : `<div class="w-7 h-7 rounded-full bg-brand-forest text-white flex items-center justify-center text-xs font-bold shrink-0"><i class="fa-solid fa-paw"></i></div>`;
+
+        container.innerHTML = `
+          <div class="flex items-center gap-2 bg-white/90 pl-1.5 pr-2.5 py-1 rounded-2xl border border-brand-sand shadow-sm hover:border-brand-sage transition-all">
+            ${userPhoto}
+            <div class="text-left text-xs leading-none hidden sm:block">
+              <span class="font-bold text-brand-forest block truncate max-w-[85px]">${userName}</span>
+              <span class="text-[10px] text-brand-muted">毛孩家長</span>
+            </div>
+            <button onclick="handleLogout()" class="p-1 text-brand-muted hover:text-red-500 text-xs rounded-lg hover:bg-stone-100 transition-colors" title="登出系統">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+          </div>
+        `;
+
+        // 自動帶入預約表單與結帳表單飼主名字
+        const bookNameInput = document.getElementById('book-owner-name');
+        if (bookNameInput && !bookNameInput.value) {
+          bookNameInput.value = userName;
+        }
+      } else {
+        // 未登入：顯示登入按鈕
+        container.innerHTML = `
+          <button id="open-auth-btn" onclick="openAuthModal('login')" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-forest text-white hover:bg-brand-sage transition-all duration-200 text-sm font-medium shadow-sm shadow-brand-forest/20">
+            <i class="fa-regular fa-circle-user text-base"></i>
+            <span class="hidden sm:inline">會員登入 / 註冊</span>
+          </button>
+        `;
+      }
+    });
+
+    /* ----------------------------------------------------
+       成功提示彈窗 (Success Modal)
+       ---------------------------------------------------- */
+    function showSuccessModal(title, message) {
+      document.getElementById('success-title').textContent = title;
+      document.getElementById('success-message').textContent = message;
+      const backdrop = document.getElementById('success-modal-backdrop');
+      const card = document.getElementById('success-modal-card');
+      backdrop.classList.remove('pointer-events-none', 'opacity-0');
+      backdrop.classList.add('opacity-100');
+      card.classList.remove('scale-95');
+      card.classList.add('scale-100');
+    }
+
+    function closeSuccessModal() {
+      const backdrop = document.getElementById('success-modal-backdrop');
+      const card = document.getElementById('success-modal-card');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      card.classList.remove('scale-100');
+      card.classList.add('scale-95');
+    }
+
+    document.getElementById('success-modal-backdrop').addEventListener('click', function(e) {
+      if (e.target === this) closeSuccessModal();
+    });
+
+    /* ----------------------------------------------------
+       Toast 提示組件
+       ---------------------------------------------------- */
+    let toastTimeout;
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastMsg.textContent = message;
+      toastIcon.innerHTML = isError 
+        ? '<i class="fa-solid fa-circle-exclamation text-red-400"></i>' 
+        : '<i class="fa-solid fa-circle-check text-brand-warm"></i>';
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    /* ----------------------------------------------------
+       手機版選單切換
+       ---------------------------------------------------- */
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    /* ----------------------------------------------------
+       電子報訂閱處理
+       ---------------------------------------------------- */
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('感謝訂閱！首期毛孩健康指南已寄至您的信箱');
+      e.target.reset();
+    }
+
+    // 初始化頁面
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateStr = tomorrow.toISOString().split('T')[0];
+      const dateInput = document.getElementById('book-date');
+      if (dateInput) {
+        dateInput.min = dateStr;
+        dateInput.value = dateStr;
+      }
+    });
+
+    // 暴露全域函數至 window 供 HTML inline 事件調用
+    window.renderProducts = renderProducts;
+    window.filterCategory = filterCategory;
+    window.addToCart = addToCart;
+    window.changeQty = changeQty;
+    window.removeFromCart = removeFromCart;
+    window.openCart = openCart;
+    window.closeCart = closeCart;
+    window.toggleCheckoutForm = toggleCheckoutForm;
+    window.handleOrderSubmit = handleOrderSubmit;
+    window.handleBookingSubmit = handleBookingSubmit;
+    window.openAuthModal = openAuthModal;
+    window.closeAuthModal = closeAuthModal;
+    window.switchAuthTab = switchAuthTab;
+    window.handleGoogleLogin = handleGoogleLogin;
+    window.handleLoginSubmit = handleLoginSubmit;
+    window.handleRegisterSubmit = handleRegisterSubmit;
+    window.handleLogout = handleLogout;
+    window.showSuccessModal = showSuccessModal;
+    window.closeSuccessModal = closeSuccessModal;
+    window.showToast = showToast;
+    window.toggleMobileMenu = toggleMobileMenu;
+    window.handleNewsletter = handleNewsletter;
+  </script>
+</body>
+</html>
